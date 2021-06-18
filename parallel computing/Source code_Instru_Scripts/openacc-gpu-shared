@@ -1,0 +1,30 @@
+#!/bin/bash
+#SBATCH --job-name="openacc-gpu-shared"
+#SBATCH --output="OpenACC.%j.out" 
+#SBATCH --partition=gpu-shared
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=1 
+#SBATCH --gpus=1 
+#SBATCH --account=csd453 
+#SBATCH -t 01:00:00
+
+#Environment 
+module purge 
+module load slurm 
+module load gpu 
+module load pgi
+
+#Run the job
+./openacc_iter.exe
+
+#Run the job
+./openacc_iter2.exe
+
+#Run the job
+./openacc_iter3.exe
+
+#Run the job
+./openacc_iter4.exe
+
+#Run the job
+./openacc_iter5.exe
